@@ -14,11 +14,17 @@ class Blogs extends Component{
       favouritesArr: []          
     }
   }
-  addToFavourites = (obj) => {             
-    obj.favorite = !obj.favorite; 
-    
+  addToFavourites = (obj) => {                
+    this.setState({
+      objArray: this.state.objArray.map(item => {
+        if (item === obj) {
+          item.favorite = !item.favorite;
+          return item;
+        }else return item;
+      }) 
+    })
     if (obj.favorite !== false) {      
-      this.setState({
+      this.setState({        
         favouritesArr: [...this.state.favouritesArr, obj]
       })
     }else
