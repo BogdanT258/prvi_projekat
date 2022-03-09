@@ -33,6 +33,7 @@
 }
 .blog-div{
   display: flex;
+  
 }
 .blog-div img{
   width: 100%;
@@ -40,6 +41,7 @@
 }
 .inner-div{
   margin: 0 15px;
+  width: 300px;
 }
 .favorite{
   display: flex;
