@@ -1,5 +1,6 @@
 import './App.css';
 import {Component} from 'react';
+import Blog from './Blog.js';
 
 class Blogs extends Component{
   constructor(props){
@@ -14,14 +15,16 @@ class Blogs extends Component{
       favouritesArr: []          
     }
   }
-  addToFavourites = (obj) => {                
+
+ 
+ addToFavourites = (obj) => {                
     this.setState({
       objArray: this.state.objArray.map(item => {
         if (item === obj) {
           item.favorite = !item.favorite;
           return item;
         }else return item;
-      }) 
+      })             
     })
     if (obj.favorite !== false) {      
       this.setState({        
@@ -34,8 +37,8 @@ class Blogs extends Component{
         favouritesArr: filteredArray
       })
     }
-    
   }
+  
       render(){   
         return (
           <div className="App">
@@ -46,19 +49,25 @@ class Blogs extends Component{
               <div className='blog-div'>
               {this.state.objArray.map(item => {
                 return(
-                  <div key={item.id} className="inner-div">
-                      <img src="" ></img>
-                      <div className='favorite'>
-                        <h3>{item.title}</h3>                        
-                        {item.favorite === true ?  
-                        <button className='buttons' onClick={e => this.addToFavourites(item)}>&#11088;</button> 
-                        : 
-                        <button className='buttons' onClick={e => this.addToFavourites(item)}>&#x2605;</button>
-                        }
+                  // <div key={item.id} className="inner-div">
+                  //     <img src="" ></img>
+                  //     <div className='favorite'>
+                  //       <h3>{item.title}</h3>                        
+                  //       {item.favorite === true ?  
+                  //       <button className='buttons' onClick={e => this.addToFavourites(item)}>&#11088;</button> 
+                  //       : 
+                  //       <button className='buttons' onClick={e => this.addToFavourites(item)}>&#x2605;</button>
+                  //       }
                         
-                      </div>
-                      {item.description}
-                  </div>
+                  //     </div>
+                  //     {item.description}
+
+                      
+
+                  // </div>   
+                  <div>
+                    <Blog key={item.id} title={item.title} description={item.description} favourite={item.favorite} addToFavourites={this.addToFavourites.bind(this)}/>
+                  </div>               
               )
               })}
               </div>
@@ -86,6 +95,8 @@ class Blogs extends Component{
           </div>
         );
       }
+      
+      
 }
 
 
