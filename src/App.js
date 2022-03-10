@@ -14,6 +14,7 @@ class Blogs extends Component{
       ],
       favouritesArr: []          
     }
+    this.addToFavourites = this.addToFavourites.bind(this);
   }
 
  
@@ -48,25 +49,9 @@ class Blogs extends Component{
               </div>
               <div className='blog-div'>
               {this.state.objArray.map(item => {
-                return(
-                  // <div key={item.id} className="inner-div">
-                  //     <img src="" ></img>
-                  //     <div className='favorite'>
-                  //       <h3>{item.title}</h3>                        
-                  //       {item.favorite === true ?  
-                  //       <button className='buttons' onClick={e => this.addToFavourites(item)}>&#11088;</button> 
-                  //       : 
-                  //       <button className='buttons' onClick={e => this.addToFavourites(item)}>&#x2605;</button>
-                  //       }
-                        
-                  //     </div>
-                  //     {item.description}
-
-                      
-
-                  // </div>   
-                  <div>
-                    <Blog key={item.id} title={item.title} description={item.description} favourite={item.favorite} addToFavourites={this.addToFavourites.bind(this)}/>
+                return(                  
+                  <div>                    
+                    <Blog item={item} addToFavourites={this.addToFavourites}/>
                   </div>               
               )
               })}
