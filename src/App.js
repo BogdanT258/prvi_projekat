@@ -13,8 +13,7 @@ class Blogs extends Component{
           {id:4, title:"Blog Post 3", description:"Lorem ipsum dolor sit amet. Qui dolorem nobis aut ipsa ducimus et laudantium praesentium ut repellendus adipisci. Sed nostrum dolore et eveniet voluptates est quia delectus hic ullam aliquid et dicta nihil eos consequuntur eveniet. Est corporis vitae quo atque mollitia et tempora distinctio non maiores!", image: "", favorite:false}
       ],
       favouritesArr: []          
-    }
-    this.addToFavourites = this.addToFavourites.bind(this);
+    }    
   }
 
  
@@ -49,33 +48,20 @@ class Blogs extends Component{
               </div>
               <div className='blog-div'>
               {this.state.objArray.map(item => {
-                return(                  
-                  <div>                    
-                    <Blog item={item} addToFavourites={this.addToFavourites}/>
-                  </div>               
+                return(                                                                   
+                    <Blog key={item.id} item={item} addToFavourites={this.addToFavourites}/>                                                
               )
               })}
               </div>
               <div>
                 <h2>Favourites</h2>
-              </div>
-              <div className='blog-div'> 
-                {this.state.favouritesArr.map(item => {
-                  return(
-                    <div key={item.id} className="inner-div">
-                        <img src="" ></img>
-                        <div className='favorite'>
-                          <h3>{item.title}</h3> 
-                          {item.favorite === true ?  
-                        <button className='buttons' onClick={e => this.addToFavourites(item)}>&#11088;</button> 
-                        : 
-                        <button className='buttons' onClick={e => this.addToFavourites(item)}>&#x2605;</button>
-                        }                                                                            
-                        </div>
-                        {item.description}
-                    </div>
-                )
-                })}   
+              </div>              
+              <div className='blog-div'>
+              {this.state.favouritesArr.map(item => {
+                return(                                                                     
+                    <Blog key={item.id} item={item} addToFavourites={this.addToFavourites}/>                                                 
+              )
+              })}
               </div>
           </div>
         );

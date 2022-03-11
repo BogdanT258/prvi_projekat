@@ -32,8 +32,7 @@
   text-align: left;
 }
 .blog-div{
-  display: flex;
-  
+  display: flex; 
 }
 .blog-div img{
   width: 100%;

@@ -7,8 +7,8 @@ class Blog extends Component{
         super(props)    
     }
     render(){                        
-        return(
-            <div key={this.props.item.id} className="inner-div">
+        return(            
+            <div className="inner-div">
                 <img src="" ></img>
                 <div className='favorite'>
                     <h3>{this.props.item.title}</h3>                        
@@ -19,7 +19,7 @@ class Blog extends Component{
                     }                        
                 </div>
                 {this.props.item.description}
-            </div>   
+            </div>               
         )        
     }
 }
